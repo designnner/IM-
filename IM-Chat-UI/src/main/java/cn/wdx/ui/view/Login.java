@@ -36,7 +36,7 @@ public class Login extends Stage {
         setScene(scene);
         initStyle(StageStyle.TRANSPARENT);
         setResizable(false);
-        this.getIcons().add(new Image("/fxml/login/img/system/bugstack_logo.png"));
+        this.getIcons().add(new Image("/fxml/login/img/system/wechat.png"));
     }
 
 }
