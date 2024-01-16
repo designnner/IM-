@@ -1,6 +1,8 @@
 package cn.wdx.ui;
 
+import cn.wdx.ui.view.ILoginMethod;
 import cn.wdx.ui.view.Login;
+import cn.wdx.ui.view.LoginController;
 import javafx.stage.Stage;
 
 /**
@@ -12,10 +14,15 @@ import javafx.stage.Stage;
 public class Application extends javafx.application.Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Login login = new Login();
-        login.show();
+
+        ILoginMethod login = new LoginController((userId, userPassword) -> {
+            System.out.println("登陆 userId：" + userId + "userPassword：" + userPassword);
+        });
+
+        login.doShow();
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         launch(args);
     }
 }
