@@ -1,4 +1,4 @@
-package cn.wdx.ui;
+package cn.wdx.ui.view;
 
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -7,10 +7,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
- * @author wudanxin
- * @version 1.0
- * @description: TODO
- * @date 2024-01-16 8:59
+ * 博  客：http://bugstack.cn
+ * 公众号：bugstack虫洞栈 | 沉淀、分享、成长，让自己和他人都能有所收获！
+ * create by 小傅哥 on @2020
  */
 public abstract class UIObject extends Stage {
 
@@ -58,6 +57,7 @@ public abstract class UIObject extends Stage {
     public double height(){
         return getHeight();
     }
+
     // 初始化页面
     public abstract void initView();
 

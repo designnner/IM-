@@ -1,10 +1,10 @@
 package cn.wdx.ui.view.face;
 
-import cn.wdx.ui.UIObject;
+
+import cn.wdx.ui.view.UIObject;
 import cn.wdx.ui.view.chat.ChatInit;
 import cn.wdx.ui.view.chat.IChatEvent;
 import cn.wdx.ui.view.chat.IChatMethod;
-
 
 /**
  * 微信公众号：bugstack虫洞栈 | 欢迎关注学习专题案例

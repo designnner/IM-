@@ -1,11 +1,11 @@
 package cn.wdx.ui.view.chat.element.group_bar_friend;
 
+import cn.wdx.ui.util.Ids;
+import cn.wdx.ui.view.chat.data.GroupsData;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import org.itstack.naive.chat.ui.util.Ids;
-import org.itstack.naive.chat.ui.view.chat.data.GroupsData;
 
 /**
  * 博  客：http://bugstack.cn

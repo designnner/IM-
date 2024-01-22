@@ -1,6 +1,6 @@
 package cn.wdx.ui.view.face;
 
-import cn.wdx.ui.UIObject;
+import cn.wdx.ui.view.UIObject;
 import cn.wdx.ui.view.chat.ChatInit;
 import cn.wdx.ui.view.chat.IChatEvent;
 import cn.wdx.ui.view.chat.IChatMethod;
@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
+
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
 package cn.wdx.ui.view.login;
 
-import cn.wdx.ui.UIObject;
+import cn.wdx.ui.view.UIObject;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,10 +13,9 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 /**
- * @author wudanxin
- * @version 1.0
- * @description: TODO
- * @date 2024-01-16 9:01
+ * 博  客：http://bugstack.cn
+ * 公众号：bugstack虫洞栈 | 沉淀、分享、成长，让自己和他人都能有所收获！
+ * create by 小傅哥 on @2020
  */
 public abstract class LoginInit extends UIObject {
 
@@ -42,7 +41,7 @@ public abstract class LoginInit extends UIObject {
         setScene(scene);
         initStyle(StageStyle.TRANSPARENT);
         setResizable(false);
-        this.getIcons().add(new Image("/fxml/login/img/system/wechat.png"));
+        this.getIcons().add(new Image("/fxml/chat/img/head/logo.png"));
         obtain();
         initView();
         initEventDefine();

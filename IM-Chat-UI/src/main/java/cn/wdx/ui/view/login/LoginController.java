@@ -1,18 +1,22 @@
 package cn.wdx.ui.view.login;
 
-/**
- * @author wudanxin
- * @version 1.0
- * @description: TODO
- * @date 2024-01-16 8:53
- */
-public class LoginController extends LoginInit implements ILoginMethod{
 
+import cn.wdx.ui.view.chat.IChatMethod;
+
+/**
+ * 博  客：http://bugstack.cn
+ * 公众号：bugstack虫洞栈 | 沉淀、分享、成长，让自己和他人都能有所收获！
+ * create by 小傅哥 on @2020
+ */
+public class LoginController extends LoginInit implements ILoginMethod {
+
+    private IChatMethod chat;
     private LoginView loginView;
     private LoginEventDefine loginEventDefine;
 
-    public LoginController(ILoginEvent loginEvent) {
+    public LoginController(ILoginEvent loginEvent, IChatMethod chat) {
         super(loginEvent);
+        this.chat = chat;
     }
 
     @Override
@@ -32,14 +36,15 @@ public class LoginController extends LoginInit implements ILoginMethod{
 
     @Override
     public void doLoginError() {
-        System.out.println("登陆失败，执行提示操作");
+        // TODO 登陆失败提示
     }
 
     @Override
     public void doLoginSuccess() {
-        System.out.println("登陆成功，执行跳转操作");
         // 关闭原窗口
         close();
+        // 打开聊天窗口
+        chat.doShow();
     }
 
 }

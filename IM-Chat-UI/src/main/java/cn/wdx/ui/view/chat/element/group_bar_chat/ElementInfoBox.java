@@ -1,11 +1,11 @@
 package cn.wdx.ui.view.chat.element.group_bar_chat;
 
+import cn.wdx.ui.util.AutoSizeTool;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import org.itstack.naive.chat.ui.util.AutoSizeTool;
 
 /**
  * 博  客：http://bugstack.cn

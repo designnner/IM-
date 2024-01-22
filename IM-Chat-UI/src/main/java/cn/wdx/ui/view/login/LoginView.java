@@ -1,10 +1,11 @@
 package cn.wdx.ui.view.login;
 
 /**
- * @author wudanxin
- * @version 1.0
- * @description: TODO
- * @date 2024-01-16 9:00
+ * 博  客：http://bugstack.cn
+ * 公众号：bugstack虫洞栈 | 沉淀、分享、成长，让自己和他人都能有所收获！
+ * create by 小傅哥 on @2020
+ *
+ * 页面展示元素和事件定义
  */
 public class LoginView {
 

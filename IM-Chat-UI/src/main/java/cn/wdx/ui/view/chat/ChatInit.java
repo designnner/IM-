@@ -1,6 +1,6 @@
 package cn.wdx.ui.view.chat;
 
-import cn.wdx.ui.UIObject;
+import cn.wdx.ui.view.UIObject;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,6 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.StageStyle;
+
 
 import java.io.IOException;
 
