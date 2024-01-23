@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wdx.chat.infrastructure.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="cn.wdx.chat.infrastructure.po.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userid" column="userId" jdbcType="VARCHAR"/>
+            <result property="usernickname" column="userNickName" jdbcType="VARCHAR"/>
+            <result property="userhead" column="userHead" jdbcType="VARCHAR"/>
+            <result property="userpassword" column="userPassword" jdbcType="VARCHAR"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,userNickName,
+        userHead,userPassword,createTime,
+        updateTime
+    </sql>
+
+    <select id="queryChannelUserCount" parameterType="cn.wdx.chat.domain.inet.model.ChannelUserReq" resultType="java.lang.Long">
+        select count(id)
+        from user
+        <where>
+            <if test="null != userId">
+                and userId = #{userId}
+            </if>
+            <if test="null != userNickName">
+                and userNickName like "%"#{userNickName}"%"
+            </if>
+        </where>
+    </select>
+
+    <select id="queryChannelUserList" parameterType="cn.wdx.chat.domain.inet.model.ChannelUserReq" resultType="cn.wdx.chat.infrastructure.po.User">
+        select userId, userNickName, userHead
+        from user
+        <where>
+            <if test="null != userId">
+                and userId = #{userId}
+            </if>
+            <if test="null != userNickName">
+                and userNickName like "%"#{userNickName}"%"
+            </if>
+        </where>
+        order by id desc
+        limit #{pageStart},#{pageEnd}
+    </select>
+
+</mapper>

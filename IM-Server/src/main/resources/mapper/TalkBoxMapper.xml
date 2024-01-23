@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wdx.chat.infrastructure.mapper.TalkBoxMapper">
+
+    <resultMap id="BaseResultMap" type="cn.wdx.chat.infrastructure.po.TalkBox">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userid" column="userId" jdbcType="VARCHAR"/>
+            <result property="talkid" column="talkId" jdbcType="VARCHAR"/>
+            <result property="talktype" column="talkType" jdbcType="INTEGER"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,talkId,
+        talkType,createTime,updateTime
+    </sql>
+
+
+    <select id="queryTalkBoxList" parameterType="java.lang.String" resultType="cn.wdx.chat.infrastructure.po.TalkBox">
+        select talkId, talkType from talk_box where userId = #{userId}
+    </select>
+
+    <insert id="addTalkBox" parameterType="cn.wdx.chat.infrastructure.po.TalkBox">
+        insert into talk_box
+        (userId,talkId,talkType,createTime,updateTime)
+        values
+        (#{userid},#{talkid},#{talktype},now(),now())
+    </insert>
+
+    <delete id="deleteUserTalk" parameterType="java.lang.String">
+        delete from talk_box where userId= #{userId} and talkId = #{talkId}
+    </delete>
+
+
+    <select id="queryTalkBox" parameterType="java.lang.String" resultType="cn.wdx.chat.infrastructure.po.TalkBox">
+        select id from talk_box where userId = #{userId} and talkId = #{talkId}
+    </select>
+
+    <select id="queryTalkBoxGroupsIdList" parameterType="java.lang.String" resultType="java.lang.String">
+        select talkId from talk_box where talkType = 1 and userId = #{userId}
+    </select>
+
+</mapper>

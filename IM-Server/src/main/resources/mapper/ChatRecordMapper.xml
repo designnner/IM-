@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wdx.chat.infrastructure.mapper.ChatRecordMapper">
+
+    <resultMap id="BaseResultMap" type="cn.wdx.chat.infrastructure.po.ChatRecord">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userid" column="userId" jdbcType="VARCHAR"/>
+            <result property="friendid" column="friendId" jdbcType="VARCHAR"/>
+            <result property="msgcontent" column="msgContent" jdbcType="VARCHAR"/>
+            <result property="msgdate" column="msgDate" jdbcType="TIMESTAMP"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="talktype" column="talkType" jdbcType="INTEGER"/>
+            <result property="msgtype" column="msgType" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,friendId,
+        msgContent,msgDate,createTime,
+        updateTime,talkType,msgType
+    </sql>
+
+    <insert id="appendChatRecord" parameterType="cn.wdx.chat.infrastructure.po.ChatRecord">
+        insert into chat_record
+        (userId,friendId, talkType, msgContent, msgType, msgDate, createTime, updateTime)
+        values
+        (#{userid},#{friendid},#{talktype},#{msgcontent},#{msgtype},#{msgdate},now(),now())
+    </insert>
+
+    <select id="queryUserChatRecordList" parameterType="java.lang.String" resultType="cn.wdx.chat.infrastructure.po.ChatRecord">
+        select userId,friendId,msgContent,msgType,msgDate
+        from chat_record
+        where talkType = 0 and (friendId = #{talkId} and userId = #{userId}) or (friendId = #{userId} and userId = #{tableId})
+        order by createTime desc
+        limit 10
+    </select>
+
+    <select id="queryGroupsChatRecordList" parameterType="java.lang.String" resultType="cn.wdx.chat.infrastructure.po.ChatRecord">
+        select userId,friendId,msgContent,msgType,msgDate
+        from chat_record
+        where talkTyoe = 1 and friendId = #{talkId}
+        order by createTime desc
+        limit 10
+    </select>
+
+
+</mapper>
